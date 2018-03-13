@@ -2,6 +2,7 @@ package com.rogerestrad.practica003;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -22,23 +23,31 @@ public class MainActivity extends AppCompatActivity {
         rbdivi = (RadioButton) findViewById(R.id.rbD);
         numero1=(EditText)findViewById(R.id.editText1);
         numero2=(EditText)findViewById(R.id.editText2);
-        resultado=(TextView)findViewById(R.id.textViewresultado);
-       
+        resultado=(TextView)findViewById(R.id.textViewres);
+
     }
 
     public void Calcular (View v){
         num1 = Float.parseFloat(numero1.getText().toString());
         num2 = Float.parseFloat(numero2.getText().toString());
 
-        if(rbsuma.isChecked())
+        if(rbsuma.isChecked()){
             res = num1 + num2;
-        if(rbresta.isChecked())
+            resultado.setText(Float.toString(res));
+        }
+        if(rbresta.isChecked()){
             res = num1 - num2;
-        if(rbmulty.isChecked())
-            res = num1 + num2;
-        if(rbdivi.isChecked())
-            res = num1 + num2;
-        resultado.setText(Float.toString(res));
+            resultado.setText(Float.toString(res));
+        }
+        if(rbmulty.isChecked()){
+            res = num1 * num2;
+            resultado.setText(Float.toString(res));
+        }
+        if(rbdivi.isChecked()){
+            res = num1 / num2;
+            resultado.setText(Float.toString(res));
+        }
+        Log.e("en","");
 
     }
 
